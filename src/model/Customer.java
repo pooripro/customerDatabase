@@ -25,4 +25,11 @@ public class Customer {
     public String getLastName(){
         return lastName;
     }
+    
+    public String toString(){
+        return "fisrtName : "
+                + firstName
+                + "lastname : "
+                + lastName;
+    }
 }
