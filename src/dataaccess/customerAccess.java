@@ -12,7 +12,7 @@ import model.Customer;
 public class customerAccess {
     public Customer cus;
     
-    public static void insert(Customer obj){
+    public  void insert(Customer obj){
         String sql = "INSER INTO CUSTOMERS VALUES(?,?)";
         try(Connection conn = DBConnection.connectDB();
                 PreparedStatement pstm = conn.prepareStatement(sql);) {

@@ -16,20 +16,26 @@ public class MainMenu {
 
     private Scanner sc;
     private int selectChoice;
-
+    private customerAccess cus;
+    
+    public MainMenu(){
+        this.sc = new Scanner(System.in);
+    }
+    
     public void menu() {
-        System.out.println("----------\n"
+        System.out.println("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n"
+                + "         APPLICATION CUSTOMER LIST\n"
                 + "1. add customer \n"
                 + "2. list all customer \n"
-                + "3. select customer");
-
-       
+                + "3. select customer\n"
+                + "▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n"
+                + "Enter number of Choice : ");
+        selectChoice = sc.nextInt();
     }
 
     public void runMenu() {
         do {
             menu();
-            selectChoice = sc.nextInt();
             switch (selectChoice) {
                 case 1:
                     addCustomer();
@@ -41,24 +47,27 @@ public class MainMenu {
                     //selectCustomer();
                     break;
                 case 4:
+                    break;
                 default:
-                    System.out.println("--- Try Again ---");
+                    System.out.println("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n"
+                            + "System : Try Again\n"
+                            + "▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
             }
         } while (selectChoice != 4);
     }
 
     private void addCustomer() {
-        String fN;
-        String lN;
         
+        System.out.println("------------------");
         System.out.println("---ADD CUSTOMER---");
         System.out.println("First Name : ");
-        fN = sc.nextLine();
-        System.out.println("Last Name : ");
-        lN = sc.nextLine();
+        String firstName = sc.nextLine();
         
-        Customer temp = new Customer(fN, lN);
-        customerAccess.insert(temp);
+        System.out.println("Last Name : ");
+        String lastName = sc.nextLine();
+        
+        Customer temp = new Customer(firstName, lastName);
+        cus.insert(temp);
     }
 
     private void listAllCustomer() {

@@ -10,7 +10,6 @@
  */
 public class Driver {
     public static void main(String[] args) {
-        
         MainMenu p = new MainMenu();
         p.runMenu();
     }
