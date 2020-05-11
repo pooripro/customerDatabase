@@ -29,7 +29,7 @@ public class Customer {
     public String toString(){
         return "fisrtName : "
                 + firstName
-                + "lastname : "
+                + "\tlastname : "
                 + lastName;
     }
 }

@@ -1,5 +1,5 @@
 
-import dataaccess.customerAccess;
+import static dataaccess.customerAccess.insert;
 import java.util.Scanner;
 import model.Customer;
 
@@ -16,7 +16,6 @@ public class MainMenu {
 
     private Scanner sc;
     private int selectChoice;
-    private customerAccess cus;
     
     public MainMenu(){
         this.sc = new Scanner(System.in);
@@ -47,27 +46,38 @@ public class MainMenu {
                     //selectCustomer();
                     break;
                 case 4:
+//                    deleteCustomer();
+                    break;
+                case 5:
                     break;
                 default:
                     System.out.println("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n"
                             + "System : Try Again\n"
                             + "▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
             }
-        } while (selectChoice != 4);
+        } while (selectChoice != 5);
     }
 
     private void addCustomer() {
+        String firstName = null;
         
         System.out.println("------------------");
         System.out.println("---ADD CUSTOMER---");
-        System.out.println("First Name : ");
-        String firstName = sc.nextLine();
+        do{
+            System.out.println("Enter first name :");
+            firstName = sc.nextLine();
+        }while(firstName.equals(""));
         
-        System.out.println("Last Name : ");
-        String lastName = sc.nextLine();
+        String lastName = null;
+        do{
+            System.out.println("Enter last name : ");
+            lastName = sc.nextLine();
+        }while(lastName.equals(""));
         
-        Customer temp = new Customer(firstName, lastName);
-        cus.insert(temp);
+        Customer obj = new Customer(firstName, lastName);
+        System.out.println(obj);
+        insert(obj);
+        
     }
 
     private void listAllCustomer() {
@@ -75,6 +85,10 @@ public class MainMenu {
     }
 
     private void selectCustomer() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void deleteCustomer() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

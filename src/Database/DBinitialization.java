@@ -7,7 +7,8 @@ import java.sql.Statement;
 public class DBinitialization {
 
 
-    public static void createTables() {
+    public  void createTables() {
+
 //        ถามโบ้ทเรืองการจัดเรียงโค้ดว่าต้องดรอป table ตอนไหน
         String sql = "CREATE TABLE CUSTOMERS (FIRSTNAME VARCHAR(20), LASTNAME VARCHAR(20))";
         try (Connection conn = DBConnection.connectDB();
