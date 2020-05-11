@@ -4,6 +4,7 @@ package dataaccess;
 import Database.DBConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import model.Customer;
@@ -23,4 +24,33 @@ public class customerAccess {
             System.err.println(ex);
         }
     }
+    
+    public static void list(){
+        try(Connection conn = DBConnection.connectDB();
+                Statement stm = conn.createStatement();){
+            ResultSet rs = stm.executeQuery("SELECT * FROM CUSTOMERS");
+            while(rs.next()){
+                System.out.println(rs.getString(1) + "  " +rs.getString(2));
+            }
+        }catch(SQLException ex){
+            System.err.println(ex);
+        }
+    }
+    
+    public static Customer selectCustomer(String firstName){
+        Customer cust = null;
+        try(Connection conn = DBConnection.connectDB();
+                Statement stm = conn.createStatement();){
+                ResultSet rs = stm.executeQuery("SELECT * FROM CUSTOMERS WHERE FIRSTNAME = '" + firstName +"'");
+                if(rs.next()){
+                    return new Customer(rs.getString("FIRSTNAME"), rs.getString("LASTNAME"));
+                }
+        }catch(SQLException ex){
+            System.err.println(ex);
+        }
+        return cust;
+    }
+    
 }
+    
+

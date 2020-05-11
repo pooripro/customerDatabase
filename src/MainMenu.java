@@ -1,5 +1,7 @@
 
 import static dataaccess.customerAccess.insert;
+import static dataaccess.customerAccess.list;
+import static dataaccess.customerAccess.selectCustomer;
 import java.util.Scanner;
 import model.Customer;
 
@@ -16,11 +18,11 @@ public class MainMenu {
 
     private Scanner sc;
     private int selectChoice;
-    
-    public MainMenu(){
+
+    public MainMenu() {
         this.sc = new Scanner(System.in);
     }
-    
+
     public void menu() {
         System.out.println("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n"
                 + "         APPLICATION CUSTOMER LIST\n"
@@ -40,10 +42,10 @@ public class MainMenu {
                     addCustomer();
                     break;
                 case 2:
-                    //listAllCustomer();
+                    listAllCustomer();
                     break;
                 case 3:
-                    //selectCustomer();
+                    findCustomer();
                     break;
                 case 4:
 //                    deleteCustomer();
@@ -60,37 +62,44 @@ public class MainMenu {
 
     private void addCustomer() {
         String firstName = null;
-        
+
         System.out.println("------------------");
         System.out.println("---ADD CUSTOMER---");
-        do{
+        do {
             System.out.println("Enter first name :");
             firstName = sc.nextLine();
-        }while(firstName.equals(""));
-        
+        } while (firstName.equals(""));
+
         String lastName = null;
-        do{
+        do {
             System.out.println("Enter last name : ");
             lastName = sc.nextLine();
-        }while(lastName.equals(""));
-        
+        } while (lastName.equals(""));
+
         Customer obj = new Customer(firstName, lastName);
         System.out.println(obj);
         insert(obj);
-        
+
     }
 
     private void listAllCustomer() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        list();
     }
 
-    private void selectCustomer() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void findCustomer() {
+        String find;
+
+        do {
+            System.out.println("--- find CUSTOMER ---");
+            System.out.println("Enter first name Customer");
+            find = sc.nextLine();
+        } while (find.equals(""));
+        Customer boat = selectCustomer(find);
+        System.out.println(boat);
     }
 
     private void deleteCustomer() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-   
+
 }
