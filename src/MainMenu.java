@@ -29,6 +29,8 @@ public class MainMenu {
                 + "1. add customer \n"
                 + "2. list all customer \n"
                 + "3. select customer\n"
+                + "4. delete customer\n"
+                + "5. update customer\n"
                 + "▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n"
                 + "Enter number of Choice : ");
         selectChoice = sc.nextInt();
@@ -48,9 +50,10 @@ public class MainMenu {
                     findCustomer();
                     break;
                 case 4:
-//                    deleteCustomer();
+                    deleteCustomer();
                     break;
                 case 5:
+                     updateCustomer();
                     break;
                 default:
                     System.out.println("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n"
@@ -59,7 +62,7 @@ public class MainMenu {
             }
         } while (selectChoice != 5);
     }
-
+//  method insert();
     private void addCustomer() {
         String firstName = null;
 
@@ -82,10 +85,12 @@ public class MainMenu {
 
     }
 
+//    method list();
     private void listAllCustomer() {
         list();
     }
 
+//    method selectCustomer();
     private void findCustomer() {
         String find;
 
@@ -99,7 +104,11 @@ public class MainMenu {
     }
 
     private void deleteCustomer() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Enter");
+    }
+
+    private void updateCustomer() {
+        
     }
 
 }
